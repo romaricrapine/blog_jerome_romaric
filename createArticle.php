@@ -120,7 +120,7 @@ if ($_POST) {
                 <h4>Post an article</h4>
                 <form method="post" action="createArticle.php">
                     <div class="form-group">
-                        <input type="text" name="title" placeholder="Enter a title for your post">
+                        <input class="titre-postarticles" type="text" name="title" placeholder="Enter a title for your post">
                     </div>
                     <div class="form-group">
                         <select class="custom-select" name="category">

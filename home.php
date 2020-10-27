@@ -14,7 +14,7 @@ $connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root'
 
 $categories = $connect->query('SELECT category_name FROM category');
 
-$article = $connect->query('SELECT * FROM article ORDER BY created_at');
+$article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
 
 ?>
 
@@ -80,10 +80,10 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
         <!--  Suite du html "main page" -->
         <main class="col-10 offset-1 mt-5">
             <?php while($a = $article->fetch()):?>
-                <div class="col-2 mt-3">
+                <div class="col mt-3">
                     <h4><?= $a['title'] ?></h4>
                 </div>
-                <div class="col mt-3 mb-5">
+                <div class="col-10 mt-3 mb-5">
                     <?= substr($a['content'],0,200); echo'...' ?>
                     <br>
                     <button>read more</button>
