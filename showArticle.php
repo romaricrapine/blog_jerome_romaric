@@ -25,5 +25,11 @@ $article = $pdo->query('SELECT * FROM article ORDER BY slug');
 
 </ul>
 
+<div class="card-2">
+    <div class="card-body">
+        <p>&copy Romaric & Jérome</p>
+    </div>
+</div>
+
 </body>
 </html>
