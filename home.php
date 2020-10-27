@@ -57,9 +57,8 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
 </div>
 
 <!-- sidebar -->
-
 <div class="container-fluid">
-    <diV class="row">
+    <div class="row">
         <aside class="col-12 col-md-1 p-0 mt-5">
             <nav class="navbar navbar-expand navbar-dark flex-md-column flex-row align-items-start">
                 <div class="collapse navbar-collapse">
@@ -90,7 +89,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                 </div>
             <?php endwhile; ?>
         </main>
-    </diV>
+    </div>
 </div>
 <!-- footer -->
 <div class="footer">
