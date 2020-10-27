@@ -34,6 +34,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
 
 <body>
 <!--  nav   -->
+
 <nav>
     <ul>
         <li>
@@ -43,7 +44,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
             <a href="about.html">About us</a>
         </li>
         <li>
-            <a href="home.html">Articles</a>
+            <a href="showArticle.php">Articles</a>
         </li>
         <li>
             <a href="F.A.Q">F.A.Q</a>
@@ -65,7 +66,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
                         <li>
-                            <a class="nav-pl-0" href="#">Catégorie</a>
+                            <p class="nav-pl-0">Catégorie</p>
                         </li>
                         <?php foreach($categories as $value){ ?>
                             <li value="<?php echo $value; ?>"><a href="category.php?category=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
@@ -93,9 +94,10 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
     </diV>
 </div>
 <!-- footer -->
-<div class="footer">
-    <br>
-    <p>&copy Romaric & Jérome</p>
+<div class="card-2">
+    <div class="card-body">
+        <p>&copy Romaric & Jérome</p>
+    </div>
 </div>
 
 </body>

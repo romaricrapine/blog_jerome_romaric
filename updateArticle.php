@@ -86,7 +86,14 @@ if($_POST){
     </form>
     </section>
     </div>
+    
 </main>
+
+<div class="card-2">
+    <div class="card-body">
+        <p>&copy Romaric & Jérome</p>
+    </div>
+</div>
 
 
 </body>

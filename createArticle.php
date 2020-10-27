@@ -63,22 +63,24 @@ if ($_POST) {
 
 <body>
 <!--  nav   -->
+
 <nav>
     <ul>
         <li>
-            <a href="home.html">Home</a>
+            <a href="home.php">Home</a>
         </li>
         <li>
             <a href="about.html">About us</a>
         </li>
         <li>
-            <a href="home.html">Articles</a>
+            <a href="showArticle.php">Articles</a>
         </li>
         <li>
             <a href="F.A.Q">F.A.Q</a>
         </li>
     </ul>
 </nav>
+
 <!-- header-->
 
 <div class="header">
@@ -142,9 +144,10 @@ if ($_POST) {
         </main>
     </diV>
 </div>
-<div class="footer">
-    <br>
-    <p>&copy Romaric & Jérome</p>
+<div class="card-2">
+    <div class="card-body">
+        <p>&copy Romaric & Jérome</p>
+    </div>
 </div>
 
 </body>
