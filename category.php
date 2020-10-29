@@ -17,7 +17,17 @@ $categories = $connect->query('SELECT category_name FROM category');
 $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
 
 if (isset($_GET['HTML'])){
-    echo "Nous sommes en html";
+    echo "Nous sommes en HTML";
+} elseif (isset($_GET['CSS'])) {
+    echo "Nous sommes en CSS";
+} elseif (isset($_GET['JavaScript'])) {
+    echo "Nous sommes en JavaScript";
+} elseif (isset($_GET['PHP'])) {
+    echo "Nous sommes en PHP";
+} elseif (isset($_GET['MySql'])) {
+    echo "Nous sommes en MySql";
+} else {
+    echo "non toujours pas";
 }
 
 ?>
