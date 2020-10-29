@@ -14,13 +14,18 @@ $connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root'
 
 $categories = $connect->query('SELECT category_name FROM category');
 
-$article = $connect->query('SELECT * FROM article ORDER BY created_at');
+$article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
+
+
+    if(isset($_GET['category'])){
+        echo "Nous sommes en HTML";
+    }
 
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="FR-fr">
 
 <head>
     <meta charset="UTF-8">
@@ -69,7 +74,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
                             <p class="nav-pl-0 categoliste">Catégorie</p>
                         </li>
                         <?php foreach($categories as $value){ ?>
-                            <li value="<?php echo $value; ?>"><a href="category.php?category=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
+                            <li value="<?php echo $value; ?>"><a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
                         <?php } ?>
                         <li>
                             <a class="nav-pl-0" href="createArticle.php">Create post</a>
@@ -80,16 +85,23 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
         </aside>
         <!--  Suite du html "main page" -->
         <main class="col-10 offset-1 mt-5">
-            <?php while($a = $article->fetch()):?>
+
+<!-- TODO: FAIRE LAFFICHAGE DE CONTENU EN FONCTION DU SLUG -->
+
+            <?php while ($a = $article->fetch()): ?>
                 <div class="col-2 mt-3">
                     <h4><?= $a['title'] ?></h4>
                 </div>
                 <div class="col mt-3 mb-5">
-                    <?= substr($a['content'],0,200); echo'...' ?>
+                    <?= substr($a['content'], 0, 200);
+                    echo '...' ?>
                     <br>
                     <button>HTML</button>
                 </div>
             <?php endwhile; ?>
+
+
+
         </main>
     </diV>
 </div>

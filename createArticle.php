@@ -13,6 +13,8 @@ $connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root'
 
 $categories = $connect->query('SELECT * FROM category');
 
+$categories2 = $connect->query('SELECT * FROM category');
+
 if ($_POST) {
 
     $getCat = $_POST["category"];
@@ -95,23 +97,11 @@ if ($_POST) {
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
                         <li>
-                            <a class="nav-pl-0" href="#">Catégorie</a>
+                            <p class="nav-pl-0 categoliste">Catégorie</p>
                         </li>
-                        <li>
-                            <a class="nav-link pl-0" href="cat1.html">Cat1</a>
-                        </li>
-                        <li>
-                            <a class="nav-link pl-0" href="cat2.html">Cat2</a>
-                        </li>
-                        <li>
-                            <a class="nav-link pl-0" href="#">Cat3</a>
-                        </li>
-                        <li>
-                            <a class="nav-link pl-0" href="#">Cat4</a>
-                        </li>
-                        <li>
-                            <a class="nav-link pl-0" href="#">Cat5</a>
-                        </li>
+                        <?php foreach($categories as $value){ ?>
+                            <li value="<?php echo $value; ?>"><a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </nav>
@@ -127,7 +117,7 @@ if ($_POST) {
                     <div class="form-group">
                         <select class="custom-select" name="category">
                             <option type="text">Choose a category</option>
-                            <?php foreach($categories as $value): ?>
+                            <?php foreach($categories2 as $value): ?>
                                 <option value="<?php echo $value['id']; ?>"><?php echo $value['category_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
