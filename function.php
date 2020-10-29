@@ -1,5 +1,7 @@
 <?php
 
+
+
 // Création de la function pour les slugs
 
 function creatSlug($string, $delimiter = '-')
