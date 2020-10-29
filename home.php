@@ -86,6 +86,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                 <div class="col-10 mt-3 mb-5">
                     <?= substr($a['content'],0,200); echo'...' ?>
                     <br>
+                    <!-- Ajouter le bouton en fonction de l'article -->
                     <button>read more</button>
                 </div>
             <?php endwhile; ?>
