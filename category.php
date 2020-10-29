@@ -17,9 +17,11 @@ $categories = $connect->query('SELECT category_name FROM category');
 $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
 
 
-    if(isset($_GET['category'])){
+    if(isset($_GET['html'])){
         echo "Nous sommes en HTML";
-    }
+    } else {
+        echo "Ce n'est pas bon";
+}
 
 ?>
 
