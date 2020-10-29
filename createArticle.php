@@ -118,9 +118,9 @@ if ($_POST) {
                     </div>
                     <div class="form-group">
                         <select class="custom-select" name="category">
-                            <option type="text">Choose a category</option>
+                            <option type="text" >Choose a category</option>
                             <?php foreach($categories2 as $value): ?>
-                                <option value="<?php echo $value['id']; ?>"><?php echo $value['category_name']; ?></option>
+                                <option value="<?php echo $value['id']; ?>" ><?php echo $value['category_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
