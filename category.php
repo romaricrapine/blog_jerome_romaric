@@ -82,7 +82,7 @@ if (isset($_GET['category']) and !empty($_GET['category'])) {
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
                         <li>
-                            <p class="nav-pl-0">Catégorie</p>
+                            <p class="nav-pl-0 categoliste">Catégorie</p>
                         </li>
                         <?php foreach ($categories as $value) { ?>
                             <li value="<?php echo $value; ?>"><a

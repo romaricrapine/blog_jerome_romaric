@@ -95,7 +95,7 @@ if ($_POST) {
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
                         <li>
-                            <a class="nav-pl-0" href="#">Catégorie</a>
+                            <p class="nav-pl-0 categoliste">Catégorie</p>
                         </li>
                         <li>
                             <a class="nav-link pl-0" href="cat1.html">Cat1</a>
