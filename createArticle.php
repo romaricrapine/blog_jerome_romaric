@@ -13,6 +13,8 @@ $connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root'
 
 $categories = $connect->query('SELECT * FROM category');
 
+$categories2 = $connect->query('SELECT * FROM category');
+
 if ($_POST) {
 
     $getCat = $_POST["category"];
@@ -115,7 +117,7 @@ if ($_POST) {
                     <div class="form-group">
                         <select class="custom-select" name="category">
                             <option type="text">Choisir une Catégorie</option>
-                            <?php foreach($categories as $value): ?>
+                            <?php foreach($categories2 as $value): ?>
                                 <option value="<?php echo $value['id']; ?>"><?php echo $value['category_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
