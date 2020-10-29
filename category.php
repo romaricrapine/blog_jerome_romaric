@@ -10,15 +10,12 @@ $connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root'
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 ]);
 
-$slug = $_GET['HTML'];
-
 // Selectionner les catagory pour les afficher dans le select
 
 $categories = $connect->query('SELECT category_name FROM category');
 
-$article = $connect->query('SELECT * FROM article WHERE slug = :slug');
+$article = $connect->query('SELECT * FROM article INNER JOIN category ON article.category_id = category.id');
 
-$article->bindValue(':slug', $slug);
 
 if (isset($_GET['HTML'])){
     echo "Nous sommes en HTML";
