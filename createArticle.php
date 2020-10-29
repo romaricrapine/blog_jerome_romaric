@@ -100,7 +100,9 @@ if ($_POST) {
                             <p class="nav-pl-0 categoliste">Catégorie</p>
                         </li>
                         <?php foreach($categories as $value){ ?>
-                            <li value="<?php echo $value; ?>"><a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
+                            <li value="<?php echo $value; ?>">
+                                <a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a>
+                            </li>
                         <?php } ?>
                     </ul>
                 </div>

@@ -16,11 +16,8 @@ $categories = $connect->query('SELECT category_name FROM category');
 
 $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
 
-
-    if(isset($_GET['html'])){
-        echo "Nous sommes en HTML";
-    } else {
-        echo "Ce n'est pas bon";
+if (isset($_GET['HTML'])){
+    echo "Nous sommes en html";
 }
 
 ?>
@@ -76,7 +73,9 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                             <p class="nav-pl-0 categoliste">Catégorie</p>
                         </li>
                         <?php foreach($categories as $value){ ?>
-                            <li value="<?php echo $value; ?>"><a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
+                            <li value="<?php echo $value; ?>">
+                                <a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a>
+                            </li>
                         <?php } ?>
                         <li>
                             <a class="nav-pl-0" href="createArticle.php">Create post</a>
@@ -88,7 +87,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
         <!--  Suite du html "main page" -->
         <main class="col-10 offset-1 mt-5">
 
-<!-- TODO: FAIRE LAFFICHAGE DE CONTENU EN FONCTION DU SLUG -->
+            <!-- TODO: FAIRE LAFFICHAGE DE CONTENU EN FONCTION DU SLUG -->
 
             <?php while ($a = $article->fetch()): ?>
                 <div class="col-2 mt-3">
@@ -101,7 +100,6 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                     <button>HTML</button>
                 </div>
             <?php endwhile; ?>
-
 
 
         </main>

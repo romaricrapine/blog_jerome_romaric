@@ -68,7 +68,9 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                             <p class="nav-pl-0 categoliste">Categories</p>
                         </li>
                         <?php foreach($categories as $value){ ?>
-                            <li value="<?php echo $value; ?>"><a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
+                            <li value="<?php echo $value; ?>">
+                                <a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a>
+                            </li>
                         <?php } ?>
                         <li>
                             <a class="nav-pl-0" href="createArticle.php">Create post</a>
