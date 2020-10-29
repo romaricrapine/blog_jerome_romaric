@@ -14,24 +14,13 @@ $connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root'
 
 $categories = $connect->query('SELECT category_name FROM category');
 
-$article = $connect->query('SELECT * FROM article ORDER BY created_at');
+$article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
 
-/*
-if (isset($_GET['category']) and !empty($_GET['category'])) {
 
-    $html = $_GET['HTML'];
-    $css = $_GET['CSS'];
-    $javascript = $_GET['JavaScript'];
-    $php = $_GET['PHP'];
-    $mysql = $_GET['MySql'];
-
-    if (isset($html, $css, $javascript, $php, $mysql)) {
-        echo $html;
-    } else {
-        echo "Il n'y a pas d'article disponible pour le moment";
+    if(isset($_GET['category'])){
+        echo "Nous sommes en HTML";
     }
-}
-*/
+
 ?>
 
 
