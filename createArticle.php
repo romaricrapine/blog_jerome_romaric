@@ -97,21 +97,9 @@ if ($_POST) {
                         <li>
                             <p class="nav-pl-0 categoliste">Catégorie</p>
                         </li>
-                        <li>
-                            <a class="nav-link pl-0" href="cat1.html">Cat1</a>
-                        </li>
-                        <li>
-                            <a class="nav-link pl-0" href="cat2.html">Cat2</a>
-                        </li>
-                        <li>
-                            <a class="nav-link pl-0" href="#">Cat3</a>
-                        </li>
-                        <li>
-                            <a class="nav-link pl-0" href="#">Cat4</a>
-                        </li>
-                        <li>
-                            <a class="nav-link pl-0" href="#">Cat5</a>
-                        </li>
+                        <?php foreach($categories as $value){ ?>
+                            <li value="<?php echo $value; ?>"><a href="category.php?category=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </nav>
