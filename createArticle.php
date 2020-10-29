@@ -101,7 +101,7 @@ if ($_POST) {
                         </li>
                         <?php foreach($categories as $value){ ?>
                             <li value="<?php echo $value; ?>">
-                                <a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a>
+                                <a href="category.php?<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a>
                             </li>
                         <?php } ?>
                     </ul>
