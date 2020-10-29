@@ -93,7 +93,7 @@ if ($_POST) {
 <div class="container-fluid">
     <diV class="row">
         <aside class="col-12 col-md-1 p-0 mt-5">
-            <nav class="navbar navbar-expand navbar-dark flex-md-column flex-row align-items-start">
+            <nav class="navbar navbar-expand navbar-dark">
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
                         <li>
@@ -116,17 +116,17 @@ if ($_POST) {
                     </div>
                     <div class="form-group">
                         <select class="custom-select" name="category">
-                            <option type="text">Choisir une Catégorie</option>
+                            <option type="text">Choose a category</option>
                             <?php foreach($categories2 as $value): ?>
                                 <option value="<?php echo $value['id']; ?>"><?php echo $value['category_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group textarea">
                         <textarea class="form-control" rows="6" name="content"></textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit" value="Submit" class="btn btn-secondary">submit</button>
+                        <input type="submit" value="Submit" class="button">
                     </div>
                 </form>
 

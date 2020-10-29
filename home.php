@@ -65,7 +65,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
                         <li>
-                            <p class="nav-pl-0 categoliste">Catégorie</p>
+                            <p class="nav-pl-0 categoliste">Categories</p>
                         </li>
                         <?php foreach($categories as $value){ ?>
                             <li value="<?php echo $value; ?>"><a href="category.php?=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>

@@ -36,7 +36,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!--<link rel="stylesheet" href=https://necolas.github.io/normalize.css/latest/normalize.css> -->
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Category</title>
 </head>
 
 <body>
