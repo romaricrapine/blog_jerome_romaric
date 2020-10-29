@@ -19,8 +19,7 @@ li a {
     
     text-decoration: none;
     display: flex;
-    color: white;
-    text-align: center;
+    color: white; 
     font-size: 1.2rem;
     letter-spacing: -2px;
     padding:20px 20px;
@@ -33,16 +32,13 @@ li a:hover{
     text-decoration: none;
     color:#8b8a37;
     background-color: #8e00d9;
-    border-radius: 10px; 
+    border-radius: 5px; 
     
 }
 
 .header {
     background: url('img/banner.jpg') 50% 50%;
     height:250px;
-    width:100%;
-    max-width:100%;
-    padding-top:100px;
     background-size:cover;
 }
 
@@ -62,6 +58,7 @@ li a:hover{
 }
 
 .card-2{
+    
     width:100%;
     background-color: #5b3cbc;
     color:rgb(245, 245, 245);
@@ -77,23 +74,54 @@ li a:hover{
 
 h3, h4, h5{letter-spacing: -2px;}
 
+
 button {
     margin-top: 0.5rem;
     color:white;
     background-color: #8b8a37;
     border-radius: 5px;
+    letter-spacing: -1px;
 }
+
+.button {
+    margin-top: 1rem;
+    color:white;
+    background-color: #8b8a37;
+    font-size: larger;
+    border-radius: 5px;
+    letter-spacing: -1px;
+}
+
+
 
 .categoliste {
     text-decoration: none;
     display: flex;
     color: white;
+    
     text-align: center;
     font-size: 1.2rem;
-    letter-spacing: -2px;
     padding: 20px;
+    letter-spacing: -2px;
 }
 
 .titre-postarticles{
     width: 100%;
 }
+
+hr {
+    border-top: 1px solid #8d8a37;
+}
+
+input, .custom-select, .textarea{
+    outline: none;
+    border: 1px solid #8d8a37;
+    border-radius: 3px;
+}
+
+::placeholder { 
+    color: #8d8a37;
+    opacity: 0.7;
+    font-style: italic;
+}
+

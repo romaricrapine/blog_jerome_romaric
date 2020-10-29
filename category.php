@@ -29,7 +29,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!--<link rel="stylesheet" href=https://necolas.github.io/normalize.css/latest/normalize.css> -->
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Category</title>
 </head>
 
 <body>
@@ -66,7 +66,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at');
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
                         <li>
-                            <p class="nav-pl-0">Catégorie</p>
+                            <p class="nav-pl-0 categoliste">Catégorie</p>
                         </li>
                         <?php foreach($categories as $value){ ?>
                             <li value="<?php echo $value; ?>"><a href="category.php?category=<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a></li>
