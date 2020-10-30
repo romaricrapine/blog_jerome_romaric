@@ -12,7 +12,7 @@ $connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root'
 
 // Selectionner les catagory pour les afficher dans le select
 
-$categories = $connect->query('SELECT category_name FROM category');
+$categories = $connect->query('SELECT slug, category_name FROM category');
 
 $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
 
@@ -69,7 +69,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                         </li>
                         <?php foreach($categories as $value){ ?>
                             <li value="<?php echo $value; ?>">
-                                <a href="category.php?<?= $value['category_name']; ?>"><?php echo $value['category_name']; ?></a>
+                                <a href="category.php?<?= $value['slug']; ?>"><?php echo $value['category_name']; ?></a>
                             </li>
                         <?php } ?>
                         <li>
