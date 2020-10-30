@@ -107,7 +107,7 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
                     <h4>
                         <?php
                         if (isset($_GET['html'])){
-                            echo $html['title'];
+                            echo "Nous sommes en HTML";;
                         } elseif (isset($_GET['css'])) {
                             echo "Nous sommes en CSS";
                         } elseif (isset($_GET['javascript'])) {
