@@ -17,22 +17,6 @@ $categories = $connect->query('SELECT category_name FROM category');
 $article = $connect->query('SELECT * FROM article INNER JOIN category ON article.category_id = category.id');
 
 
-if (isset($_GET['HTML'])){
-    echo "Nous sommes en HTML";
-} elseif (isset($_GET['CSS'])) {
-    echo "Nous sommes en CSS";
-} elseif (isset($_GET['JavaScript'])) {
-    echo "Nous sommes en JavaScript";
-} elseif (isset($_GET['PHP'])) {
-    echo "Nous sommes en PHP";
-} elseif (isset($_GET['MySql'])) {
-    echo "Nous sommes en MySql";
-} else {
-    echo "non toujours pas";
-}
-
-
-
 ?>
 
 
@@ -102,15 +86,75 @@ if (isset($_GET['HTML'])){
 
             <!-- TODO: FAIRE LAFFICHAGE DE CONTENU EN FONCTION DU SLUG -->
 
+<!--    if (isset($_GET['HTML'])){
+    echo "Nous sommes en HTML";
+} elseif (isset($_GET['CSS'])) {
+    echo "Nous sommes en CSS";
+} elseif (isset($_GET['JavaScript'])) {
+    echo "Nous sommes en JavaScript";
+} elseif (isset($_GET['PHP'])) {
+    echo "Nous sommes en PHP";
+} elseif (isset($_GET['MySql'])) {
+    echo "Nous sommes en MySql";
+} else {
+    echo "non toujours pas";
+}
+        -->
+
             <?php while ($a = $article->fetch()): ?>
                 <div class="col-2 mt-3">
-                    <h4><?= $a['title'] ?></h4>
+                    <h4>
+                        <?php
+                        if (isset($_GET['HTML'])){
+                            echo "Nous sommes en HTML";
+                        } elseif (isset($_GET['CSS'])) {
+                            echo "Nous sommes en CSS";
+                        } elseif (isset($_GET['JavaScript'])) {
+                            echo "Nous sommes en JavaScript";
+                        } elseif (isset($_GET['PHP'])) {
+                            echo "Nous sommes en PHP";
+                        } elseif (isset($_GET['MySql'])) {
+                            echo "Nous sommes en MySql";
+                        } else {
+                            echo "non toujours pas";
+                        }
+                        ?>
+                    </h4>
                 </div>
                 <div class="col mt-3 mb-5">
-                    <?= substr($a['content'], 0, 200);
-                    echo '...' ?>
+                    <?php
+                    if (isset($_GET['HTML'])){
+                        echo "Nous sommes en HTML";
+                    } elseif (isset($_GET['CSS'])) {
+                        echo "Nous sommes en CSS";
+                    } elseif (isset($_GET['JavaScript'])) {
+                        echo "Nous sommes en JavaScript";
+                    } elseif (isset($_GET['PHP'])) {
+                        echo "Nous sommes en PHP";
+                    } elseif (isset($_GET['MySql'])) {
+                        echo "Nous sommes en MySql";
+                    } else {
+                        echo "non toujours pas";
+                    }
+                    ?>
                     <br>
-                    <button>HTML</button>
+                    <a href="#">
+                        <?php
+                                if (isset($_GET['HTML'])){
+                        echo "Read Mor for HTML";
+                        } elseif (isset($_GET['CSS'])) {
+                        echo "Read Mor for CSS";
+                        } elseif (isset($_GET['JavaScript'])) {
+                        echo "Read Mor for JavaScript";
+                        } elseif (isset($_GET['PHP'])) {
+                        echo "Read Mor for PHP";
+                        } elseif (isset($_GET['MySql'])) {
+                        echo "Read Mor for MySql";
+                        } else {
+                        echo "non toujours pas";
+                        }
+                        ?>
+                    </a>
                 </div>
             <?php endwhile; ?>
 
