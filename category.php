@@ -106,22 +106,15 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
                 <!-- TITRE DES ARTICLES -->
                     <h4>
                         <?php
-                        if (isset($_GET['HTML'])){
-
-                            $html = $connect->query("SELECT title FROM article WHERE category_id = 1");
-
-                            $html->fetch();
-
-                            var_dump($html);
-
+                        if (isset($_GET['html'])){
                             echo $html['title'];
-                        } elseif (isset($_GET['CSS'])) {
+                        } elseif (isset($_GET['css'])) {
                             echo "Nous sommes en CSS";
-                        } elseif (isset($_GET['JavaScript'])) {
+                        } elseif (isset($_GET['javascript'])) {
                             echo "Nous sommes en JavaScript";
-                        } elseif (isset($_GET['PHP'])) {
+                        } elseif (isset($_GET['php'])) {
                             echo "Nous sommes en PHP";
-                        } elseif (isset($_GET['MySql'])) {
+                        } elseif (isset($_GET['mysql'])) {
                             echo "Nous sommes en MySql";
                         } else {
                             echo "non toujours pas";
