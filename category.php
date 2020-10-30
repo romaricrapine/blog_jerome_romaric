@@ -108,11 +108,6 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
 
                             $html = $connect->query("SELECT title FROM article WHERE category_id = 1");
 
-                            $html->bindParam(1, $categoy_id);
-
-                            var_dump($html);
-
-
                             echo "Nous sommes en html";
                         } elseif (isset($_GET['CSS'])) {
                             echo "Nous sommes en CSS";
