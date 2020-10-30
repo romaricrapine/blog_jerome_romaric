@@ -99,14 +99,20 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
     echo "non toujours pas";
 }
         -->
-
+            
             <?php while ($donnees = $articles->fetch()): ?>
+
                 <div class="col-2 mt-3">
+                <!-- TITRE DES ARTICLES -->
                     <h4>
                         <?php
                         if (isset($_GET['HTML'])){
 
                             $html = $connect->query("SELECT title FROM article WHERE category_id = 1");
+
+                            $html->fetch();
+
+                            var_dump($html);
 
                             echo "Nous sommes en html";
                         } elseif (isset($_GET['CSS'])) {
@@ -123,6 +129,8 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
                         ?>
                     </h4>
                 </div>
+
+                <!-- CONTENU DE L'ARTICLE -->
                 <div class="col mt-3 mb-5">
                     <?php
                     if (isset($_GET['HTML'])){
@@ -140,6 +148,8 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
                     }
                     ?>
                     <br>
+
+                    <!-- BOUTON READ MORE -->
                     <a href="#">
                         <?php
                         /* TODO : FINIR CE BOUTON DE MERDE
@@ -159,8 +169,8 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
                         ?>
                     </a>
                 </div>
-            <?php endwhile; ?>
 
+            <?php endwhile; ?>
 
         </main>
     </diV>
