@@ -14,8 +14,7 @@ $connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root'
 
 $categories = $connect->query('SELECT category_name FROM category');
 
-$article = $connect->query('SELECT * FROM article INNER JOIN category ON article.category_id = category.id');
-
+$articles = $connect->query('SELECT * FROM article INNER JOIN category ON article.category_id = category.id');
 
 ?>
 
@@ -101,12 +100,12 @@ $article = $connect->query('SELECT * FROM article INNER JOIN category ON article
 }
         -->
 
-            <?php while ($a = $article->fetch()): ?>
+            <?php while ($donnees = $articles->fetch()): ?>
                 <div class="col-2 mt-3">
                     <h4>
                         <?php
                         if (isset($_GET['HTML'])){
-                            echo "Nous sommes en HTML";
+                            echo $donnees['title'];
                         } elseif (isset($_GET['CSS'])) {
                             echo "Nous sommes en CSS";
                         } elseif (isset($_GET['JavaScript'])) {
@@ -124,7 +123,7 @@ $article = $connect->query('SELECT * FROM article INNER JOIN category ON article
                 <div class="col mt-3 mb-5">
                     <?php
                     if (isset($_GET['HTML'])){
-                        echo "Nous sommes en HTML";
+                        echo $donnees['content'];
                     } elseif (isset($_GET['CSS'])) {
                         echo "Nous sommes en CSS";
                     } elseif (isset($_GET['JavaScript'])) {
@@ -140,19 +139,20 @@ $article = $connect->query('SELECT * FROM article INNER JOIN category ON article
                     <br>
                     <a href="#">
                         <?php
-                                if (isset($_GET['HTML'])){
-                        echo "Read Mor for HTML";
+                        /* TODO : FINIR CE BOUTON DE MERDE
+                        if (isset($_GET['HTML'])){
+                            echo "Read more" . "+" . $donnees['id'];
                         } elseif (isset($_GET['CSS'])) {
-                        echo "Read Mor for CSS";
+                            echo "Nous sommes en CSS";
                         } elseif (isset($_GET['JavaScript'])) {
-                        echo "Read Mor for JavaScript";
+                            echo "Nous sommes en JavaScript";
                         } elseif (isset($_GET['PHP'])) {
-                        echo "Read Mor for PHP";
+                            echo "Nous sommes en PHP";
                         } elseif (isset($_GET['MySql'])) {
-                        echo "Read Mor for MySql";
+                            echo "Nous sommes en MySql";
                         } else {
-                        echo "non toujours pas";
-                        }
+                            echo "non toujours pas";
+                        }*/
                         ?>
                     </a>
                 </div>
