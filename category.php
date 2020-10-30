@@ -105,7 +105,15 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
                     <h4>
                         <?php
                         if (isset($_GET['HTML'])){
-                            echo $donnees['title'];
+
+                            $html = $connect->query("SELECT title FROM article WHERE category_id = 1");
+
+                            $html->bindParam(1, $categoy_id);
+
+                            var_dump($html);
+
+
+                            echo "Nous sommes en html";
                         } elseif (isset($_GET['CSS'])) {
                             echo "Nous sommes en CSS";
                         } elseif (isset($_GET['JavaScript'])) {
@@ -123,7 +131,7 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
                 <div class="col mt-3 mb-5">
                     <?php
                     if (isset($_GET['HTML'])){
-                        echo $donnees['content'];
+                        echo "Nous sommes en CSS";
                     } elseif (isset($_GET['CSS'])) {
                         echo "Nous sommes en CSS";
                     } elseif (isset($_GET['JavaScript'])) {
