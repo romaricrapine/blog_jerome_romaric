@@ -5,12 +5,6 @@ require_once('database.php');
 
 $catego = selectCategory();
 
-// Connexion à la base de donnée
-
-$connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root', '', [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
-
 // Selectionner les catagory pour les afficher dans le select
 
 $categories = $connect->query('SELECT slug, category_name FROM category');
@@ -21,7 +15,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-fr">
 
 <head>
     <meta charset="UTF-8">
@@ -43,9 +37,6 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
         </li>
         <li>
             <a href="about.html">About us</a>
-        </li>
-        <li>
-            <a href="showArticle.php">Articles</a>
         </li>
         <li>
             <a href="F.A.Q">F.A.Q</a>
@@ -87,10 +78,11 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                     <h4><?= $a['title'] ?></h4>
                 </div>
                 <div class="col-10 mt-3 mb-5">
-                    <?= substr($a['content'],0,200); echo'...' ?>
+                    <?= substr($a['content'],0,150); echo'...' ?>
                     <br>
+                    <br>
+                    <a href="showArticle.php?<?= $a['slug']; ?>">Read More</a>
                     <!-- Ajouter le bouton en fonction de l'article -->
-                    <button>read more</button>
                 </div>
             <?php endwhile; ?>
         </main>

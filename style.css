@@ -126,3 +126,7 @@ input, .custom-select, .textarea{
     font-style: italic;
 }
 
+.art{
+    background-color: white;
+    color: black;
+}

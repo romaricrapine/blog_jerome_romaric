@@ -41,9 +41,6 @@ $articles = $connect->prepare('SELECT * FROM article INNER JOIN category ON arti
             <a href="about.html">About us</a>
         </li>
         <li>
-            <a href="showArticle.php">Articles</a>
-        </li>
-        <li>
             <a href="F.A.Q">F.A.Q</a>
         </li>
     </ul>
