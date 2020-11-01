@@ -1,5 +1,6 @@
 <?php
-require('function.php'); //test git
+require('function.php');
+require_once('database.php');
 
 $catego = selectCategory();
 

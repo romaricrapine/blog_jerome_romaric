@@ -1,6 +1,7 @@
 <?php
 
 require('function.php');
+require_once('database.php');
 
 $catego = selectCategory();
 

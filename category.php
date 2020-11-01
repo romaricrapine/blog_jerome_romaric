@@ -1,20 +1,17 @@
 <?php
 
 require('function.php');
+require_once('database.php');
 
 $catego = selectCategory();
 
-// Connexion à la base de donnée
-
-$connect = new PDO('mysql:host=mysql;dbname=database_exo;host=127.0.0.1', 'root', '', [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
 
 // Selectionner les catagory pour les afficher dans le select
 
 $categories = $connect->query('SELECT slug, category_name FROM category');
 
-$articles = $connect->query('SELECT * FROM article INNER JOIN category ON article.category_id = category.id');
+$articles = $connect->prepare('SELECT * FROM article INNER JOIN category ON article.category_id = category.id WHERE category.slug = ?');
+
 
 ?>
 
@@ -82,88 +79,55 @@ $articles = $connect->query('SELECT * FROM article INNER JOIN category ON articl
         </aside>
         <!--  Suite du html "main page" -->
         <main class="col-10 offset-1 mt-5">
-
-            <!-- TODO: FAIRE LAFFICHAGE DE CONTENU EN FONCTION DU SLUG -->
-
-<!--    if (isset($_GET['HTML'])){
-    echo "Nous sommes en HTML";
-} elseif (isset($_GET['CSS'])) {
-    echo "Nous sommes en CSS";
-} elseif (isset($_GET['JavaScript'])) {
-    echo "Nous sommes en JavaScript";
-} elseif (isset($_GET['PHP'])) {
-    echo "Nous sommes en PHP";
-} elseif (isset($_GET['MySql'])) {
-    echo "Nous sommes en MySql";
-} else {
-    echo "non toujours pas";
-}
-        -->
             
-            <?php while ($donnees = $articles->fetch()): ?>
+            <?php
 
-                <div class="col-2 mt-3">
-                <!-- TITRE DES ARTICLES -->
-                    <h4>
-                        <?php
-                        if (isset($_GET['html'])){
-                            echo "Nous sommes en HTML";;
-                        } elseif (isset($_GET['css'])) {
-                            echo "Nous sommes en CSS";
-                        } elseif (isset($_GET['javascript'])) {
-                            echo "Nous sommes en JavaScript";
-                        } elseif (isset($_GET['php'])) {
-                            echo "Nous sommes en PHP";
-                        } elseif (isset($_GET['mysql'])) {
-                            echo "Nous sommes en MySql";
-                        } else {
-                            echo "non toujours pas";
-                        }
-                        ?>
-                    </h4>
-                </div>
-
-                <!-- CONTENU DE L'ARTICLE -->
-                <div class="col mt-3 mb-5">
-                    <?php
-                    if (isset($_GET['HTML'])){
-                        echo "Nous sommes en CSS";
-                    } elseif (isset($_GET['CSS'])) {
-                        echo "Nous sommes en CSS";
-                    } elseif (isset($_GET['JavaScript'])) {
-                        echo "Nous sommes en JavaScript";
-                    } elseif (isset($_GET['PHP'])) {
-                        echo "Nous sommes en PHP";
-                    } elseif (isset($_GET['MySql'])) {
-                        echo "Nous sommes en MySql";
-                    } else {
-                        echo "non toujours pas";
+                if (isset($_GET['html'])){
+                    $articles->execute(['html']);
+                    while ($art = $articles->fetch()){
+                        echo "<strong><h1>"  .  $art['title'] . "</h1></strong>";
+                        echo $art['content'];echo "<br>";
+                        echo "<br>";
                     }
-                    ?>
-                    <br>
+                }
 
-                    <!-- BOUTON READ MORE -->
-                    <a href="#">
-                        <?php
-                        /* TODO : FINIR CE BOUTON DE MERDE
-                        if (isset($_GET['HTML'])){
-                            echo "Read more" . "+" . $donnees['id'];
-                        } elseif (isset($_GET['CSS'])) {
-                            echo "Nous sommes en CSS";
-                        } elseif (isset($_GET['JavaScript'])) {
-                            echo "Nous sommes en JavaScript";
-                        } elseif (isset($_GET['PHP'])) {
-                            echo "Nous sommes en PHP";
-                        } elseif (isset($_GET['MySql'])) {
-                            echo "Nous sommes en MySql";
-                        } else {
-                            echo "non toujours pas";
-                        }*/
-                        ?>
-                    </a>
-                </div>
+                if (isset($_GET['css'])){
+                    $articles->execute(['css']);
+                    while ($art = $articles->fetch()){
+                        echo "<strong><h1>"  .  $art['title'] . "</h1></strong>";
+                        echo $art['content'];echo "<br>";
+                        echo "<br>";
+                    }
+                }
 
-            <?php endwhile; ?>
+                if (isset($_GET['javascript'])){
+                    $articles->execute(['javascript']);
+                    while ($art = $articles->fetch()){
+                        echo "<strong><h1>"  .  $art['title'] . "</h1></strong>";
+                        echo $art['content'];echo "<br>";
+                        echo "<br>";
+                    }
+                }
+
+                if (isset($_GET['php'])){
+                    $articles->execute(['php']);
+                    while ($art = $articles->fetch()){
+                        echo "<strong><h1>"  .  $art['title'] . "</h1></strong>";
+                        echo $art['content'];echo "<br>";
+                        echo "<br>";
+                    }
+                }
+
+                if (isset($_GET['mysql'])){
+                    $articles->execute(['mysql']);
+                    while ($art = $articles->fetch()){
+                        echo "<strong><h1>"  .  $art['title'] . "</h1></strong>";
+                        echo $art['content'];echo "<br>";
+                        echo "<br>";
+                    }
+                }
+
+                ?>
 
         </main>
     </diV>
