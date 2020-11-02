@@ -41,12 +41,12 @@ if ($_POST) {
         // On execute
         $query->execute();
 
-        $message['message'] = "Félicitation votre article a bien été ajouter !";
+        $verif = true;
     } else {
-        $message['erreur'] = "L'article n'est pas complet, merci de recommencer !";
+        $verif = false;
     }
-}
 
+}
 
 ?>
 
@@ -109,21 +109,30 @@ if ($_POST) {
         <!-- Main html-->
         <main class="col-10 offset-1 mt-5">
             <div class="col-6 offset-2">
+                <?php
+
+                if ($verif === true):
+
+                    ?>
+                <div class="alert alert-success">Félicitation votre article a bien été ajouter !</div>
+                <?php else: ?>
+                <div class="alert alert-danger">Erreur</div>
+                <?php endif; ?>
                 <h4>Post an article</h4>
                 <form method="post" action="createArticle.php">
                     <div class="form-group">
-                        <input class="titre-postarticles" type="text" name="title" placeholder="Enter a title for your post">
+                        <input class="titre-postarticles" type="text" name="title" placeholder="Enter a title for your post" required>
                     </div>
                     <div class="form-group">
-                        <select class="custom-select" name="category">
-                            <option type="text" >Choose a category</option>
+                        <select class="custom-select" name="category" >
+                            <option required type="text" >Choose a category</option>
                             <?php foreach($categories2 as $value): ?>
-                                <option value="<?php echo $value['id']; ?>" ><?php echo $value['category_name']; ?></option>
+                                <option required value="<?php echo $value['id']; ?>" ><?php echo $value['category_name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group textarea">
-                        <textarea class="form-control" rows="6" name="content"></textarea>
+                        <textarea class="form-control" rows="6" name="content" required></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Submit" class="button">
