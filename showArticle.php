@@ -4,11 +4,22 @@ require_once('database.php');
 
 $catego = selectCategory();
 
-$article = $connect->query('SELECT * FROM article ORDER BY slug');
-
 $categories = $connect->query('SELECT slug, category_name FROM category');
 
-$article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
+if(isset($_GET['id']) AND !empty($_GET['id'])){
+    $get_id = htmlspecialchars($_GET['id']);
+    $article = $connect->prepare('SELECT * FROM article WHERE id = ?');
+    $article->execute(array($get_id));
+    if($article->rowCount() == 1){
+        $article = $article->fetch();
+        $title = $article['title'];
+        $content = $article['content'];
+    }else{
+        die("Cet article n'existe pas !");
+    }
+
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -56,11 +67,11 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                         <li>
                             <p class="nav-pl-0 categoliste">Categories</p>
                         </li>
-                        <?php foreach($categories as $value){ ?>
+                        <?php foreach($categories as $value):  ?>
                             <li value="<?php echo $value; ?>">
                                 <a href="category.php?<?= $value['slug']; ?>"><?php echo $value['category_name']; ?></a>
                             </li>
-                        <?php } ?>
+                        <?php endforeach; ?>
                         <li>
                             <a class="nav-pl-0" href="createArticle.php">Create post</a>
                         </li>
@@ -70,17 +81,10 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
         </aside>
         <!--  Suite du html "main page" -->
         <main class="col-10 offset-1 mt-5">
-            <ul style="background: none;">
-                <?php while($a = $article->fetch()){?>
 
-                    <li class="li">
-                        <h1><?= $a['title'] ?></h1>
-                        <p><?= $a['content'] ?></p>
-                        <br>
-                        <br>
-                    </li>
-                <?php } ?>
-            </ul>
+            <h1><?= $title ?></h1>
+            <p><?= $content ?></p>
+
         </main>
     </div>
 </div>

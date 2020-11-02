@@ -81,7 +81,7 @@ $article = $connect->query('SELECT * FROM article ORDER BY created_at DESC');
                     <?= substr($a['content'],0,150); echo'...' ?>
                     <br>
                     <br>
-                    <a href="showArticle.php?<?= $a['slug']; ?>">Read More</a>
+                    <a href="showArticle.php?id=<?= $a['id'] ?>">Read more</a>
                     <!-- Ajouter le bouton en fonction de l'article -->
                 </div>
             <?php endwhile; ?>
